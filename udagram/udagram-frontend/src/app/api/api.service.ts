@@ -65,11 +65,12 @@ export class ApiService {
                                   });
 
     return new Promise ( resolve => {
-        this.http.request(req).subscribe((resp) => {
-        if (resp && (<any> resp).status && (<any> resp).status === 200) {
+      // Removed subscribe as it was causing a double POST
+      // this.http.request(req).subscribe((resp) => {
+        // if (resp && (<any> resp).status && (<any> resp).status === 200) {
           resolve(this.post(endpoint, payload));
-        }
-      });
+        // }
+      // });
     });
   }
 }
