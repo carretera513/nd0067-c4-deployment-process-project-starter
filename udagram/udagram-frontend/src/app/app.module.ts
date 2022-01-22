@@ -33,4 +33,4 @@ import { ApiService } from './api/api.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
