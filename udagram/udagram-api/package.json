@@ -9,7 +9,8 @@
     "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .env_prod www/.env && cp .npmrc www/.npmrc && cp -rf node_modules www/node_modules && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "build": "chmod +x ./bin/build.sh && ./bin/build.sh",
+    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
