@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { FeedModule } from '../feed/feed.module';
 import { HomePage } from './homepage/home.page';
+import { HomeRoutingModule } from './home-routing.module';
 
 
 
@@ -14,14 +15,8 @@ import { HomePage } from './homepage/home.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    HomeRoutingModule
   ],
-  exports: [RouterModule],
   declarations: [HomePage],
   providers: []
 })
