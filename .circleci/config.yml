@@ -6,7 +6,7 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
   # different jobs are calles later in the workflows sections
 jobs:
-  api-build:
+  api-build-deploy:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -18,59 +18,49 @@ jobs:
       - eb/setup
       # install dependencies
       - run:
-          name: Angular CLI Dependencies
-          command: |
-            npm i -g @angular/cli      
-      - run:
           name: Install API Dependencies
           command: |
-            npm run api:install
+            cd udagram && npm run api:install
       - run:
           name: API Build
           command: |
-            npm run api:build
-  frontend-build:
+            cd udagram && npm run api:build
+      - run:
+          name: Deploy API
+          command: |
+            cd udagram && npm run api:deploy
+  frontend-build-deploy:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
-      - node/install
       - checkout
+      - node/install:
+          node-version: '14.15.1'
+      - aws-cli/install
       # install dependencies
+      - run:
+          name: Angular CLI Dependencies
+          command: |
+            npm i -g @angular/cli      
       - run:
           name: Install Frontend Dependencies
           command: |
-            npm run frontend:install
+            cd udagram && npm run frontend:install
       - run:
           name: Frontend Lint
           command: |
-            npm run frontend:lint
+            cd udagram && npm run frontend:lint
       - run:
           name: Frontend Build
           command: |
-            npm run frontend:build
-  api-deploy:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - run:
-          name: Deploy API
-          command: |
-            (cd udagram-api && npm run deploy)
-  frontend-deploy:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
+            cd udagram && npm run frontend:build
       - run:
           name: Deploy Frontend
           command: |
-            (cd udagram-frontend && npm run deploy)
+            cd udagram && npm run frontend:deploy
 workflows:
   udagram:
     jobs:
-      - api-build
-      - frontend-build
-      - api-deploy
-      - frontend-build
+      - api-build-deploy
+      - frontend-build-deploy
