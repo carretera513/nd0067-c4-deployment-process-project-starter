@@ -3,6 +3,15 @@
 # "clean": "rm -rf www/ || true",
 # "build": "npm run clean && tsc && cp -rf src/config www/config && cp .env_prod www/.env && cp .npmrc www/.npmrc && cp -rf node_modules www/node_modules && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
 
+# Create for the deploy process
+echo "Creating AWS Profile..."
+mkdir /home/ubuntu/.aws
+touch /home/ubuntu/.aws/config
+chmod 600 /home/ubuntu/.aws/config
+echo "[profile eb-cli]" > /home/ubuntu/.aws/config
+echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> /home/ubuntu/.aws/config
+echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> /home/ubuntu/.aws/config
+
 # Remove existing www directory
 echo "Removing files..."
 rm -rf www || true
