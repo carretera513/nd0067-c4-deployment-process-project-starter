@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { FeedModule } from '../feed/feed.module';
 import { HomePage } from './homepage/home.page';
 
+
+
 @NgModule({
   imports: [
     FeedModule,
@@ -19,6 +21,7 @@ import { HomePage } from './homepage/home.page';
       }
     ])
   ],
+  exports: [RouterModule],
   declarations: [HomePage],
   providers: []
 })
