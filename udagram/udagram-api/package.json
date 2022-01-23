@@ -10,6 +10,7 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "chmod +x ./bin/build.sh && ./bin/build.sh",
+    "build-local": "chmod +x ./bin/build.sh && ./bin/build-local.sh",
     "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

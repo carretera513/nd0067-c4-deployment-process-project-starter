@@ -14,24 +14,9 @@ tsc
 # Copy over needed files and folders
 echo "Copying files..."
 cp -rf ./src/config ./www/config
-# cp ./.env_prod ./www/.env
-touch ./www/.env
-chmod 600 ./www/.env
-echo "POSTGRES_USERNAME=$POSTGRES_USERNAME" > ./www/.env
-echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> ./www/.env
-echo "POSTGRES_DB=$POSTGRES_DB" >> ./www/.env
-echo "POSTGRES_HOST=$POSTGRES_HOST" >> ./www/.env
-echo "POSTGRERS_PORT=$POSTGRERS_PORT" >> ./www/.env
-echo "URL=$URL" >> ./www/.env
-echo "JWT_SECRET=$JWT_SECRET" >> ./www/.env
-echo "AWS_REGION=$AWS_REGION" >> ./www/.env
-echo "AWS_BUCKET=$AWS_BUCKET" >> ./www/.env
-
+cp ./.env_prod ./www/.env
 cp ./.npmrc ./www/.npmrc
-# cp -rf ./.elasticbeanstalk ./www/.elasticbeanstalk
-mkdir ./www/.elasticbeanstalk
-cp ./resources/eb/config.yml ./www/.elasticbeanstalk/config.yml
-
+cp -rf ./.elasticbeanstalk ./www/.elasticbeanstalk
 cp ./package.json ./www/package.json
 
 # Just get the required node_modules
