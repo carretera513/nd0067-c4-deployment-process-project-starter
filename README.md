@@ -1,13 +1,13 @@
-# Hosting a Full-Stack Application
+# Udagram Full-Stack Application
 
-### **You can use you own project completed in previous courses or use the provided Udagram app for completing this final project.**
+Entry point for application: [http://final-project-prd513.s3-website-us-east-1.amazonaws.com](http://final-project-prd513.s3-website-us-east-1.amazonaws.com)
 
----
+* On entering the site, the `home` page loads. Any existing feeds (photo and caption) are displayed.
 
-In this project you will learn how to take a newly developed Full-Stack application built for a retailer and deploy it to a cloud service provider so that it is available to customers. You will use the aws console to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers. You will modify your package.json scripts and replace hard coded secrets with environment variables in your code.
+* Register for an account (name, email, and password) or login with an existing account (email and password). You may need to refresh the page to post to the feed.
 
-After the initial setup, you will learn to interact with the services you started on aws and will deploy manually the application a first time to it. As you get more familiar with the services and interact with them through a CLI, you will gradually understand all the moving parts.
+* Once authenticated, the `Create a New Post` button will enable. Click it and then select a photo and enter a caption. Click the `Submit` button to post to the feed. The most recent feed will display first (at the top of the page).
 
-You will then register for a free account on CircleCi and connect your Github account to it. Based on the manual steps used to deploy the app, you will write a config.yml file that will make the process reproducible in CircleCi. You will set up the process to be executed automatically based when code is pushed on the main Github branch.
+* Click the `Logout` to end the session.
 
-The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the Full-Stack application.
+## Additional detailed documentation is located in the `Documentation` folder

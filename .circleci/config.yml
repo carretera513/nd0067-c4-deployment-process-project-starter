@@ -6,6 +6,7 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
   # different jobs are calles later in the workflows sections
 jobs:
+  # API Build and Deploy
   api-build-deploy:
     docker:
       # the base image can run most needed actions with orbs
@@ -21,14 +22,17 @@ jobs:
           name: Install API Dependencies
           command: |
             cd udagram && npm run api:install
+      # Build
       - run:
           name: API Build
           command: |
             cd udagram && npm run api:build
+      # Deploy
       - run:
           name: Deploy API
           command: |
             cd udagram && npm run api:deploy
+  # Frontend Build and Deploy
   frontend-build-deploy:
     docker:
       # the base image can run most needed actions with orbs
@@ -47,18 +51,22 @@ jobs:
           name: Install Frontend Dependencies
           command: |
             cd udagram && npm run frontend:install
+      # Lint
       - run:
           name: Frontend Lint
           command: |
             cd udagram && npm run frontend:lint
+      # Build
       - run:
           name: Frontend Build
           command: |
             cd udagram && npm run frontend:build
+      # Deploy
       - run:
           name: Deploy Frontend
           command: |
             cd udagram && npm run frontend:deploy
+# Workflow allows the two solutions to run at the same time
 workflows:
   udagram:
     jobs:
