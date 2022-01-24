@@ -66,9 +66,17 @@ jobs:
           name: Deploy Frontend
           command: |
             cd udagram && npm run frontend:deploy
-# Workflow allows the two solutions to run at the same time
+# Workflow only runs matster branch. API must complete before Frontend
 workflows:
   udagram:
     jobs:
-      - api-build-deploy
-      - frontend-build-deploy
+      - api-build-deploy:
+          filters: # Only master branch
+            branches:
+              only: /^master/
+      - frontend-build-deploy:
+          requires:
+            - api-build-deploy
+          filters: # Only master branch
+            branches:
+              only: /^master/

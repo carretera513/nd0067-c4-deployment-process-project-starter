@@ -11,3 +11,7 @@ Entry point for application: [http://final-project-prd513.s3-website-us-east-1.a
 * Click the `Logout` to end the session.
 
 ## Additional detailed documentation is located in the `Documentation` folder
+
+## Latest Pipeline Status
+
+[![CircleCI](https://circleci.com/gh/carretera513/nd0067-c4-deployment-process-project-starter/tree/master.svg?style=svg)](https://circleci.com/gh/carretera513/nd0067-c4-deployment-process-project-starter/tree/master)

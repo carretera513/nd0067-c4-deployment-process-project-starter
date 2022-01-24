@@ -21,3 +21,8 @@ Only the AWS CLI is installed in this job. Prior to the dependencies being insta
 ### Udagram
 
 The package.json in the Udagram directory contains the scripts used in CircleCI. These scripts call the scripts in the solution-specific package.json files. This makes the CircleCI configuration script easier to read.
+
+
+### Latest Pipeline Status
+
+[![CircleCI](https://circleci.com/gh/carretera513/nd0067-c4-deployment-process-project-starter/tree/master.svg?style=svg)](https://circleci.com/gh/carretera513/nd0067-c4-deployment-process-project-starter/tree/master)
